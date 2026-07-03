@@ -1,0 +1,459 @@
+Delivered-To: mustafabaraz@ogr.iuc.edu.tr
+Received: by 2002:a05:7301:1c83:b0:30b:d2ca:27ff with SMTP id al3csp2489740dyc;
+        Sat, 20 Jun 2026 01:28:55 -0700 (PDT)
+X-Received: by 2002:a05:600c:a117:b0:492:4b22:79ed with SMTP id 5b1f17b1804b1-4924b227be1mr14016675e9.4.1781944134766;
+        Sat, 20 Jun 2026 01:28:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781944134; cv=none;
+        d=google.com; s=arc-20260327;
+        b=J9CaCDxT+oexUJ/NB/pyBVTviNvUeC+2utdhg8gEMvtKQHlArU3cIL3e1Dk4yl7Yja
+         CiMNAQ0althEYtd4KCFg6evxTtxBd9lU8sbHyAqBbkj3Wzgzjz1Tgn1QV0kapDT/8H8A
+         agcB4gjV80GM3gmOJdm9/0uqhUpPkzit6odp3oZ/F5d02yMHqwDBhLAFeJ+VmOMZVlc2
+         EehUhC7Z7rw9Nkmz4RnPhJyCTh6o2aXKS025ja3r5fejmoVvtwBCbazVXF0TLaRH5b3X
+         0d1LSY06tDX99UL5U4VbubYB0yZmnRQHbJo40Dfj33BdFy8TXYNFW1GZVrHCopj8RteU
+         9FcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=auto-submitted:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:dkim-signature:dkim-filter;
+        bh=pVWWuZWE/Iip5d3LwmphekNClSUbi8DfIdgCmTdaYtI=;
+        fh=OFTovpps1m52Av9ijpea7R8XzES2n2dTgVL8VZN11QQ=;
+        b=PImiefE/c7J/bYVU4b5fCEVNDaHBjQFC1g8U913yqT9WjqmjBYlGfXoJkcUSYESdho
+         D7ZFEh9sBI2XpuWv+za4SHktMbqRyhMCFXtkMJubjUb4zom031dxvDOkq5YcpdwAUd79
+         avzM1ZDSsQbucofYCxTJi1bUuOhs17dknAMg3ypXEV9Je5RGqKclNwWTQEMToZOFb++1
+         X6r5wERa5s8UJ+37bqZ3qei3ZNRXVi0YgqUT65lx6juhKT7dAEScXBpecBcF+SmzEjS9
+         fYcexfTo9hfejqXQsoypdM5wNx03p0eDTJaPF9xkcIR+A36b/lyVVrc6XqWkUTFNG4ZM
+         WZPA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@eposta.iuc.edu.tr header.s=FE14CD8A-621D-11EB-9D53-4811CCEE00BA header.b=eeKV9fRg;
+       spf=pass (google.com: domain of iuccanvas-noreply@eposta.iuc.edu.tr designates 95.183.179.37 as permitted sender) smtp.mailfrom=iuccanvas-noreply@eposta.iuc.edu.tr;
+       dmarc=pass (p=REJECT sp=QUARANTINE dis=NONE) header.from=iuc.edu.tr
+Return-Path: <iuccanvas-noreply@eposta.iuc.edu.tr>
+Received: from iucmail.eposta.iuc.edu.tr (eposta.iuc.edu.tr. [95.183.179.37])
+        by mx.google.com with ESMTPS id ffacd0b85a97d-46667cb8808si3979800f8f.462.2026.06.20.01.28.54
+        for <mustafabaraz@ogr.iuc.edu.tr>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 20 Jun 2026 01:28:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of iuccanvas-noreply@eposta.iuc.edu.tr designates 95.183.179.37 as permitted sender) client-ip=95.183.179.37;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@eposta.iuc.edu.tr header.s=FE14CD8A-621D-11EB-9D53-4811CCEE00BA header.b=eeKV9fRg;
+       spf=pass (google.com: domain of iuccanvas-noreply@eposta.iuc.edu.tr designates 95.183.179.37 as permitted sender) smtp.mailfrom=iuccanvas-noreply@eposta.iuc.edu.tr;
+       dmarc=pass (p=REJECT sp=QUARANTINE dis=NONE) header.from=iuc.edu.tr
+Received: from localhost (localhost [127.0.0.1])
+	by iucmail.eposta.iuc.edu.tr (Postfix) with ESMTP id EEEE5201121
+	for <mustafabaraz@ogr.iuc.edu.tr>; Sat, 20 Jun 2026 11:28:53 +0300 (+03)
+Received: from iucmail.eposta.iuc.edu.tr ([127.0.0.1])
+ by localhost (iucmail.eposta.iuc.edu.tr [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id vk2_uXR236SP for <mustafabaraz@ogr.iuc.edu.tr>;
+ Sat, 20 Jun 2026 11:28:53 +0300 (+03)
+Received: from localhost (localhost [127.0.0.1])
+	by iucmail.eposta.iuc.edu.tr (Postfix) with ESMTP id 7648E20111B
+	for <mustafabaraz@ogr.iuc.edu.tr>; Sat, 20 Jun 2026 11:28:53 +0300 (+03)
+DKIM-Filter: OpenDKIM Filter v2.10.3 iucmail.eposta.iuc.edu.tr 7648E20111B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=eposta.iuc.edu.tr;
+	s=FE14CD8A-621D-11EB-9D53-4811CCEE00BA; t=1781944133;
+	bh=pVWWuZWE/Iip5d3LwmphekNClSUbi8DfIdgCmTdaYtI=;
+	h=Date:From:To:Message-ID:Mime-Version;
+	b=eeKV9fRguD82nGc/h38CYguYTRtg6pgGUOEP2RgxmbgoigTlShA6tfmKEFRWMS/Y/
+	 wkmxV5aTVothzm8GBoSO6RPyCAJ9USiSE0Ei57N0tAO3iSasbZkac9oaI9jMqW/oY/
+	 uhFKpS1QhwV5Tr61tMhvYArByGaOvXOEWVBXSl7I=
+X-Virus-Scanned: amavis at eposta.iuc.edu.tr
+Received: from iucmail.eposta.iuc.edu.tr ([127.0.0.1])
+ by localhost (iucmail.eposta.iuc.edu.tr [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id x_-Qc1rVQPCQ for <mustafabaraz@ogr.iuc.edu.tr>;
+ Sat, 20 Jun 2026 11:28:53 +0300 (+03)
+Received: from eposta.iuc.edu.tr (unknown [10.200.3.61])
+	by iucmail.eposta.iuc.edu.tr (Postfix) with ESMTPSA id 5581920111F
+	for <mustafabaraz@ogr.iuc.edu.tr>; Sat, 20 Jun 2026 11:28:53 +0300 (+03)
+Date: Sat, 20 Jun 2026 11:28:53 +0300
+From: =?UTF-8?B?VkVSxLAgQsSwTMSwTcSw?= <iuccanvas-noreply@eposta.iuc.edu.tr>
+Reply-To: iuccanvas-noreply+0a1617d1f7369d72-1~6137745-1781944128@eposta.iuc.edu.tr
+To: mustafabaraz@ogr.iuc.edu.tr
+Message-ID: <6a364f4533b17_491c2ab750e9d96413125e6@canvas21.mail>
+Subject: =?UTF-8?Q?Veri_Bilimi_D=C3=B6nem_Projesi_=28Final=29:_VER=C4=B0?=
+ =?UTF-8?Q?_B=C4=B0L=C4=B0M=C4=B0?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6a364f4532dd2_491c2ab750e9d9641312411";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Auto-Submitted: auto-generated
+
+
+----==_mimepart_6a364f4532dd2_491c2ab750e9d9641312411
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+          Merhaba arkada=C5=9Flar,=0D
+=0D
+Final s=C4=B1nav=C4=B1 yerine d=C3=B6nem projesi olarak bu d=C3=B6nem boy=
+unca =C3=B6=C4=9Frendi=C4=9Fimiz veri bilimi i=C5=9F ak=C4=B1=C5=9F=C4=B1=
+n=C4=B1 (veri toplama, temizleme, ke=C5=9Fifsel analiz, g=C3=B6rselle=C5=9F=
+tirme ve temel modelleme vb.) ger=C3=A7ek veya ger=C3=A7ek=C3=A7i bir ver=
+i seti =C3=BCzerinde uygulaman=C4=B1z =C3=BCzerine bir =C3=A7al=C4=B1=C5=9F=
+ma sizlerden bekliyorum. =C3=87al=C4=B1=C5=9Fma y=C3=B6ntemi "vibe coding=
+" kullanabilirsiniz: kodu sat=C4=B1r sat=C4=B1r elle yazmak yerine bir AI=
+ kodlama asistan=C4=B1n=C4=B1 (Claude, ChatGPT, Copilot, Cursor vb.) biri=
+ncil geli=C5=9Ftirme orta=C4=9F=C4=B1 olarak kullanacaks=C4=B1n=C4=B1z. B=
+una kar=C5=9F=C4=B1l=C4=B1k =C3=BCretilen her =C3=A7=C4=B1kt=C4=B1y=C4=B1=
+ anlamak, do=C4=9Frulamak ve gerekirse sorulan sorular=C4=B1 cevaplamak s=
+izin sorumlulu=C4=9Funuzda olacakt=C4=B1r.=0D
+=0D
+Son teslim tarihi: 3 Temmuz 2026, saat 12:30=0D
+=C3=87al=C4=B1=C5=9Fma =C5=9Fekli: Bireysel veya 2 ki=C5=9Filik gruplar=0D=
+
+=0D
+Tema havuzu (birini se=C3=A7in, =C3=B6rnek veri kayna=C4=9F=C4=B1yla =E2=80=
+=94 verilen kaynaklar sadece =C3=B6rnektir, bunlarla s=C4=B1n=C4=B1rl=C4=B1=
+ kalmak zorunda de=C4=9Filsiniz, ayn=C4=B1 temaya uygun ba=C5=9Fka bir a=C3=
+=A7=C4=B1k veri seti de kullanabilirsiniz):=0D
+=0D
+* Ak=C4=B1ll=C4=B1 =C5=9Eehir & Toplu Ta=C5=9F=C4=B1ma =E2=80=94 =C4=B0BB=
+ A=C3=A7=C4=B1k Veri Portal=C4=B1 (=C4=B0ETT hat/yolcu verileri)=0D
+=0D
+* Sa=C4=9Fl=C4=B1k & Halk Sa=C4=9Fl=C4=B1=C4=9F=C4=B1 =E2=80=94 T=C3=9C=C4=
+=B0K sa=C4=9Fl=C4=B1k istatistikleri, Kaggle sa=C4=9Fl=C4=B1k veri setler=
+i=0D
+=0D
+* Finans & Ekonomi =E2=80=94 BIST hisse verileri, TCMB d=C3=B6viz kurlar=C4=
+=B1=0D
+=0D
+* E-ticaret & M=C3=BC=C5=9Fteri Davran=C4=B1=C5=9F=C4=B1 =E2=80=94 Kaggle=
+ Online Retail / Brazilian E-Commerce=0D
+=0D
+* Sosyal Medya & Metin Analizi =E2=80=94 a=C3=A7=C4=B1k haber ba=C5=9Fl=C4=
+=B1=C4=9F=C4=B1 korpuslar=C4=B1, duygu analizi veri setleri=0D
+=0D
+* Enerji & =C3=87evre =E2=80=94 EPDK elektrik t=C3=BCketim verileri, =C4=B0=
+BB hava kalitesi verileri=0D
+=0D
+* Spor Analiti=C4=9Fi =E2=80=94 a=C3=A7=C4=B1k futbol lig istatistikleri=0D=
+
+=0D
+* E=C4=9Fitim & =C3=96=C4=9Frenci Performans=C4=B1 =E2=80=94 OECD PISA ve=
+rileri=0D
+=0D
+Teknik kapsam (zorunlu bile=C5=9Fenler):=0D
+=0D
+* Veri y=C3=BCkleme ve temizleme: eksik veri, ayk=C4=B1r=C4=B1 de=C4=9Fer=
+, tip d=C3=B6n=C3=BC=C5=9F=C3=BCmleri=0D
+=0D
+* Ke=C5=9Fifsel veri analizi (EDA): temel istatistikler, en az 4 farkl=C4=
+=B1 g=C3=B6rselle=C5=9Ftirme t=C3=BCr=C3=BC=0D
+=0D
+* En az 3 somut ara=C5=9Ft=C4=B1rma sorusu tan=C4=B1mlanmal=C4=B1 ve anal=
+izle yan=C4=B1tlanmal=C4=B1=0D
+=0D
+* Basit modelleme: uygun bir regresyon, s=C4=B1n=C4=B1fland=C4=B1rma veya=
+ k=C3=BCmeleme y=C3=B6ntemi (kapsaml=C4=B1 hiperparametre optimizasyonu b=
+eklenmiyor, tek savunulabilir model yeterli)=0D
+=0D
+* Sonu=C3=A7lar=C4=B1n veri setinin temas=C4=B1 ba=C4=9Flam=C4=B1nda yoru=
+mlanmas=C4=B1=0D
+=0D
+=C4=B0ki haftal=C4=B1k s=C3=BCre nedeniyle kapsam yine de dar tutulmal=C4=
+=B1; derinlik geni=C5=9Flikten =C3=B6nceliklidir.=0D
+=0D
+Teslim edilecekler:=0D
+=0D
+* =C3=87al=C4=B1=C5=9F=C4=B1r notebook (.ipynb): veri y=C3=BCkleme, temiz=
+leme, EDA, modelleme ad=C4=B1mlar=C4=B1n=C4=B1n t=C3=BCm=C3=BCn=C3=BC i=C3=
+=A7eren, kod bloklar=C4=B1n=C4=B1n yorum sat=C4=B1rlar=C4=B1yla a=C3=A7=C4=
+=B1kland=C4=B1=C4=9F=C4=B1 tek bir dosya=0D
+=0D
+* K=C4=B1sa rapor (PDF, 3-5 sayfa): problem tan=C4=B1m=C4=B1, kullan=C4=B1=
+lan veri seti ve kayna=C4=9F=C4=B1, y=C3=B6ntem, bulgular, s=C4=B1n=C4=B1=
+rlamalar, =C3=B6=C4=9Frenilenler=0D
+=0D
+* Prompt g=C3=BCnl=C3=BC=C4=9F=C3=BC: geli=C5=9Ftirme s=C3=BCrecinde kull=
+an=C4=B1lan en az 10-15 =C3=B6nemli prompt, kronolojik s=C4=B1rayla ve ha=
+ngi ad=C4=B1mda kullan=C4=B1ld=C4=B1=C4=9F=C4=B1 belirtilerek=0D
+=0D
+* README: Proje ekibi bilgileri (=C3=96=C4=9Frenci numaras=C4=B1, ad=C4=B1=
+ soyad=C4=B1), projeyi =C3=A7al=C4=B1=C5=9Ft=C4=B1rma talimatlar=C4=B1, k=
+ullan=C4=B1lan k=C3=BCt=C3=BCphaneler, veri kayna=C4=9F=C4=B1n=C4=B1n ad=C4=
+=B1 ve lisans=C4=B1=0D
+=0D
+Teslim format=C4=B1:=0D
+=0D
+* T=C3=BCm proje bir GitHub repository linki olarak teslim edilmeli (Gith=
+ub hesab=C4=B1 a=C3=A7=C4=B1p t=C3=BCm =C3=A7al=C4=B1=C5=9Fman=C4=B1z=C4=B1=
+ orada haz=C4=B1rlay=C4=B1p link olarak payla=C5=9Fmal=C4=B1s=C4=B1n=C4=B1=
+z.)=0D
+=0D
+* Ayr=C4=B1ca haz=C4=B1rlad=C4=B1=C4=9F=C4=B1n=C4=B1z k=C4=B1sa rapor =C5=
+=9Feffaf dosya i=C3=A7inde =C3=A7=C4=B1kt=C4=B1 olarak ilgili tarihte der=
+sin =C3=B6=C4=9Fretim =C3=BCyesi veya asistan=C4=B1na teslim edilecektir.=
+=0D
+=0D
+Kod bloklar=C4=B1 hakk=C4=B1nda teslimde k=C4=B1sa sorular sorulabilir, o=
+ y=C3=BCzden AI'nin yazd=C4=B1=C4=9F=C4=B1 her =C5=9Feyi anlam=C4=B1=C5=9F=
+ olun.=C2=A0=0D
+=0D
+Sorular=C4=B1n=C4=B1z i=C3=A7in : [eisenkul@iuc.edu.tr] (mailto:eisenkul@=
+iuc.edu.tr)=0D
+=0D
+=0D
+https://canvas.iuc.edu.tr/courses/87120/announcements/28895=0D
+=0D
+=0D
+=0D
+=0D
+=0D
+=0D
+          ________________________________________=0D
+=0D
+          Canvas'=C4=B1 kullanarak bir veya daha fazla derse kat=C4=B1ld=C4=
+=B1=C4=9F=C4=B1n=C4=B1z i=C3=A7in bu epostay=C4=B1 ald=C4=B1n=C4=B1z. Epo=
+sta bildirimlerini de=C4=9Fi=C5=9Ftirme ya da kapatmak i=C3=A7in =C5=9Fur=
+aya gidin:=0D
+https://canvas.iuc.edu.tr/profile/communication=0D
+=0D
+
+----==_mimepart_6a364f4532dd2_491c2ab750e9d9641312411
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html dir=3D"ltr" lang=3D"tr">=0D
+<head>=0D
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width">=0D
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">=0D
+  <style type=3D"text/css">=0D
+/*=0D
+Changes to font size (14->16) for smaller screens=0D
+table[class=3Dbody] is the only selector that works for all vendors=0D
+*/=0D
+@media only screen and (max-width: 620px) {=0D
+  table[class=3Dbody] p,=0D
+  table[class=3Dbody] ul,=0D
+  table[class=3Dbody] ol,=0D
+  table[class=3Dbody] td,=0D
+  table[class=3Dbody] span,=0D
+  table[class=3Dbody] a {=0D
+    font-size: 16px !important;=0D
+  }=0D
+  /* remove padding for mobile so no gray shows */=0D
+  table[class=3Dbody] .bodycell {=0D
+    padding: 0 !important;=0D
+    width: 100% !important;=0D
+  }=0D
+  /* reduce padding from 20->10 for mobile */=0D
+  table[class=3Dbody] .maincell {=0D
+    padding: 10px !important;=0D
+  }=0D
+}=0D
+/*=0D
+ExternalClass fixes Outlook.com / Hotmail emails=0D
+*/=0D
+@media all {=0D
+  .ExternalClass {=0D
+    width: 100%;=0D
+  }=0D
+  .ExternalClass,=0D
+  .ExternalClass p,=0D
+  .ExternalClass span,=0D
+  .ExternalClass font,=0D
+  .ExternalClass td,=0D
+  .ExternalClass div {=0D
+    line-height: 100%;=0D
+  }=0D
+}=0D
+  </style>=0D
+</head>=0D
+<!--=0D
+background: white (could be gray)=0D
+default sans serif fonts, 14px, 1.3, #444444=0D
+vendor prefixes for Outlook (-ms) and iOS (-webkit)=0D
+Margin is capitalized to fix Outlook.com=0D
+-->=0D
+<body class=3D"" style=3D"background-color:#ffffff; font-family:'Open San=
+s', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', T=
+ahoma, 'Sans Serif'; font-size:14px; color: #444444; line-height:1.3; Mar=
+gin:0; padding:0; -ms-text-size-adjust:100%; -webkit-font-smoothing:antia=
+liased; -webkit-text-size-adjust:100%;">=0D
+=0D
+  <!-- body: background table (if body has a color, this should match) --=
+>=0D
+  <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"body" =
+style=3D"border-collapse:separate; background-color:#ffffff; width:100%; =
+box-sizing:border-box; mso-table-lspace:0pt; mso-table-rspace:0pt;">=0D
+    <tr>=0D
+      <!-- width and max-width so it can scale for mobile -->=0D
+      <td class=3D"bodycell" style=3D"max-width:600px; width:100%; font-f=
+amily:'Open Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida S=
+ans Unicode', Tahoma, 'Sans Serif'; font-size:14px; vertical-align:top; d=
+isplay:block; box-sizing:border-box; padding:10px; Margin:0 auto !importa=
+nt;">=0D
+=0D
+<!-- for older versions of Outlook that don't support max-width -->=0D
+<!--[if (gte mso 9)|(IE)]>=0D
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tr><td>=0D
+<![endif]-->=0D
+=0D
+        <!-- main: white box for content -->=0D
+        <table class=3D"main" style=3D"background:#fff; width:100%; borde=
+r-collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">=0D
+          <tr>=0D
+            <td class=3D"maincell" style=3D"font-family:sans-serif; font-=
+size:14px; vertical-align:top; box-sizing:border-box; padding:20px;">=0D
+=0D
+                    =0D
+<p>Merhaba arkada=C5=9Flar,</p>=0D
+<p>Final s=C4=B1nav=C4=B1 yerine d=C3=B6nem projesi olarak bu d=C3=B6nem =
+boyunca =C3=B6=C4=9Frendi=C4=9Fimiz veri bilimi i=C5=9F ak=C4=B1=C5=9F=C4=
+=B1n=C4=B1 (veri toplama, temizleme, ke=C5=9Fifsel analiz, g=C3=B6rselle=C5=
+=9Ftirme ve temel modelleme vb.) ger=C3=A7ek veya ger=C3=A7ek=C3=A7i bir =
+veri seti =C3=BCzerinde uygulaman=C4=B1z =C3=BCzerine bir =C3=A7al=C4=B1=C5=
+=9Fma sizlerden bekliyorum. =C3=87al=C4=B1=C5=9Fma y=C3=B6ntemi "vibe cod=
+ing" kullanabilirsiniz: kodu sat=C4=B1r sat=C4=B1r elle yazmak yerine bir=
+ AI kodlama asistan=C4=B1n=C4=B1 (Claude, ChatGPT, Copilot, Cursor vb.) b=
+irincil geli=C5=9Ftirme orta=C4=9F=C4=B1 olarak kullanacaks=C4=B1n=C4=B1z=
+. Buna kar=C5=9F=C4=B1l=C4=B1k =C3=BCretilen her =C3=A7=C4=B1kt=C4=B1y=C4=
+=B1 anlamak, do=C4=9Frulamak ve gerekirse sorulan sorular=C4=B1 cevaplama=
+k sizin sorumlulu=C4=9Funuzda olacakt=C4=B1r.</p>=0D
+<p><strong>Son teslim tarihi:</strong> 3 Temmuz 2026, saat 12:30<br><stro=
+ng>=C3=87al=C4=B1=C5=9Fma =C5=9Fekli:</strong> Bireysel veya 2 ki=C5=9Fil=
+ik gruplar</p>=0D
+<p><strong>Tema havuzu</strong> (birini se=C3=A7in, =C3=B6rnek veri kayna=
+=C4=9F=C4=B1yla =E2=80=94 verilen kaynaklar sadece =C3=B6rnektir, bunlarl=
+a s=C4=B1n=C4=B1rl=C4=B1 kalmak zorunda de=C4=9Filsiniz, ayn=C4=B1 temaya=
+ uygun ba=C5=9Fka bir a=C3=A7=C4=B1k veri seti de kullanabilirsiniz):</p>=
+=0D
+<ul>=0D
+<li>Ak=C4=B1ll=C4=B1 =C5=9Eehir &amp; Toplu Ta=C5=9F=C4=B1ma =E2=80=94 =C4=
+=B0BB A=C3=A7=C4=B1k Veri Portal=C4=B1 (=C4=B0ETT hat/yolcu verileri)</li=
+>=0D
+<li>Sa=C4=9Fl=C4=B1k &amp; Halk Sa=C4=9Fl=C4=B1=C4=9F=C4=B1 =E2=80=94 T=C3=
+=9C=C4=B0K sa=C4=9Fl=C4=B1k istatistikleri, Kaggle sa=C4=9Fl=C4=B1k veri =
+setleri</li>=0D
+<li>Finans &amp; Ekonomi =E2=80=94 BIST hisse verileri, TCMB d=C3=B6viz k=
+urlar=C4=B1</li>=0D
+<li>E-ticaret &amp; M=C3=BC=C5=9Fteri Davran=C4=B1=C5=9F=C4=B1 =E2=80=94 =
+Kaggle Online Retail / Brazilian E-Commerce</li>=0D
+<li>Sosyal Medya &amp; Metin Analizi =E2=80=94 a=C3=A7=C4=B1k haber ba=C5=
+=9Fl=C4=B1=C4=9F=C4=B1 korpuslar=C4=B1, duygu analizi veri setleri</li>=0D=
+
+<li>Enerji &amp; =C3=87evre =E2=80=94 EPDK elektrik t=C3=BCketim verileri=
+, =C4=B0BB hava kalitesi verileri</li>=0D
+<li>Spor Analiti=C4=9Fi =E2=80=94 a=C3=A7=C4=B1k futbol lig istatistikler=
+i</li>=0D
+<li>E=C4=9Fitim &amp; =C3=96=C4=9Frenci Performans=C4=B1 =E2=80=94 OECD P=
+ISA verileri</li>=0D
+</ul>=0D
+<p><strong>Teknik kapsam (zorunlu bile=C5=9Fenler):</strong></p>=0D
+<ul>=0D
+<li>Veri y=C3=BCkleme ve temizleme: eksik veri, ayk=C4=B1r=C4=B1 de=C4=9F=
+er, tip d=C3=B6n=C3=BC=C5=9F=C3=BCmleri</li>=0D
+<li>Ke=C5=9Fifsel veri analizi (EDA): temel istatistikler, en az 4 farkl=C4=
+=B1 g=C3=B6rselle=C5=9Ftirme t=C3=BCr=C3=BC</li>=0D
+<li>En az 3 somut ara=C5=9Ft=C4=B1rma sorusu tan=C4=B1mlanmal=C4=B1 ve an=
+alizle yan=C4=B1tlanmal=C4=B1</li>=0D
+<li>Basit modelleme: uygun bir regresyon, s=C4=B1n=C4=B1fland=C4=B1rma ve=
+ya k=C3=BCmeleme y=C3=B6ntemi (kapsaml=C4=B1 hiperparametre optimizasyonu=
+ beklenmiyor, tek savunulabilir model yeterli)</li>=0D
+<li>Sonu=C3=A7lar=C4=B1n veri setinin temas=C4=B1 ba=C4=9Flam=C4=B1nda yo=
+rumlanmas=C4=B1</li>=0D
+</ul>=0D
+<p>=C4=B0ki haftal=C4=B1k s=C3=BCre nedeniyle kapsam yine de dar tutulmal=
+=C4=B1; derinlik geni=C5=9Flikten =C3=B6nceliklidir.</p>=0D
+<p><strong>Teslim edilecekler:</strong></p>=0D
+<ul>=0D
+<li>=0D
+<strong>=C3=87al=C4=B1=C5=9F=C4=B1r notebook</strong> (.ipynb): veri y=C3=
+=BCkleme, temizleme, EDA, modelleme ad=C4=B1mlar=C4=B1n=C4=B1n t=C3=BCm=C3=
+=BCn=C3=BC i=C3=A7eren, kod bloklar=C4=B1n=C4=B1n yorum sat=C4=B1rlar=C4=B1=
+yla a=C3=A7=C4=B1kland=C4=B1=C4=9F=C4=B1 tek bir dosya</li>=0D
+<li>=0D
+<strong>K=C4=B1sa rapor</strong> (PDF, 3-5 sayfa): problem tan=C4=B1m=C4=B1=
+, kullan=C4=B1lan veri seti ve kayna=C4=9F=C4=B1, y=C3=B6ntem, bulgular, =
+s=C4=B1n=C4=B1rlamalar, =C3=B6=C4=9Frenilenler</li>=0D
+<li>=0D
+<strong>Prompt g=C3=BCnl=C3=BC=C4=9F=C3=BC</strong>: geli=C5=9Ftirme s=C3=
+=BCrecinde kullan=C4=B1lan en az 10-15 =C3=B6nemli prompt, kronolojik s=C4=
+=B1rayla ve hangi ad=C4=B1mda kullan=C4=B1ld=C4=B1=C4=9F=C4=B1 belirtiler=
+ek</li>=0D
+<li>=0D
+<strong>README</strong>: Proje ekibi bilgileri (=C3=96=C4=9Frenci numaras=
+=C4=B1, ad=C4=B1 soyad=C4=B1), projeyi =C3=A7al=C4=B1=C5=9Ft=C4=B1rma tal=
+imatlar=C4=B1, kullan=C4=B1lan k=C3=BCt=C3=BCphaneler, veri kayna=C4=9F=C4=
+=B1n=C4=B1n ad=C4=B1 ve lisans=C4=B1</li>=0D
+</ul>=0D
+<p><strong>Teslim format=C4=B1:</strong></p>=0D
+<ul>=0D
+<li>T=C3=BCm proje bir GitHub repository linki olarak teslim edilmeli (Gi=
+thub hesab=C4=B1 a=C3=A7=C4=B1p t=C3=BCm =C3=A7al=C4=B1=C5=9Fman=C4=B1z=C4=
+=B1 orada haz=C4=B1rlay=C4=B1p link olarak payla=C5=9Fmal=C4=B1s=C4=B1n=C4=
+=B1z.)</li>=0D
+<li>Ayr=C4=B1ca haz=C4=B1rlad=C4=B1=C4=9F=C4=B1n=C4=B1z k=C4=B1sa rapor =C5=
+=9Feffaf dosya i=C3=A7inde =C3=A7=C4=B1kt=C4=B1 olarak ilgili tarihte der=
+sin =C3=B6=C4=9Fretim =C3=BCyesi veya asistan=C4=B1na teslim edilecektir.=
+</li>=0D
+</ul>=0D
+<p>Kod bloklar=C4=B1 hakk=C4=B1nda teslimde k=C4=B1sa sorular sorulabilir=
+, o y=C3=BCzden AI'nin yazd=C4=B1=C4=9F=C4=B1 her =C5=9Feyi anlam=C4=B1=C5=
+=9F olun.=C2=A0</p>=0D
+<p><strong>Sorular=C4=B1n=C4=B1z i=C3=A7in :</strong> <a href=3D"mailto:e=
+isenkul@iuc.edu.tr">eisenkul@iuc.edu.tr</a></p>=0D
+=0D
+=0D
+=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+        <!-- /.main -->=0D
+=0D
+        <!-- logo: branding -->=0D
+        <table class=3D"logo" style=3D"width:100%; box-sizing:border-box;=
+ border-collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">=
+=0D
+          <tr>=0D
+            <td class=3D"logocell" style=3D"text-align:center; vertical-a=
+lign:top; box-sizing:border-box; padding:10px;">=0D
+              <img src=3D"https://cdn.istanbul.edu.tr/FileHandler2.ashx?f=
+=3Daltin_yaldiz_logo_tr_eng-01_637001853416153700.png" alt=3D"" width=3D"=
+350px">=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+        <!-- /.logo -->=0D
+=0D
+        <!-- footer: gray text below main -->=0D
+        <table class=3D"footer" style=3D"width:100%; box-sizing:border-bo=
+x; border-collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; =
+">=0D
+          <tr>=0D
+            <td class=3D"footercell" style=3D"font-family:sans-serif; fon=
+t-size:14px; vertical-align:top; color:#a8b9c6; font-size:12px; text-alig=
+n:center; padding:10px; box-sizing:border-box; ">=0D
+=0D
+                <a href=3D"https://canvas.iuc.edu.tr/courses/87120/announ=
+cements/28895">=0D
+    Duyuruyu g=C3=B6ster=0D
+  </a> &nbsp;|&nbsp;=0D
+=0D
+                <a href=3D"https://canvas.iuc.edu.tr/profile/communicatio=
+n" style=3D"white-space: nowrap;">Bildirim ayarlar=C4=B1n=C4=B1z=C4=B1 g=C3=
+=BCncelleyin</a>=0D
+=0D
+            </td>=0D
+          </tr>=0D
+        </table>=0D
+        <!-- /.footer -->=0D
+=0D
+<!--[if (gte mso 9)|(IE)]>=0D
+</td></tr></table>=0D
+<![endif]-->=0D
+=0D
+      </td>=0D
+    </tr>=0D
+  </table>=0D
+  <!-- /.body -->=0D
+=0D
+</body>=0D
+</html>=0D
+
+----==_mimepart_6a364f4532dd2_491c2ab750e9d9641312411--

@@ -1,0 +1,80 @@
+# =============================================
+# Python Projeleri için .gitignore
+# =============================================
+
+# --- Sanal Ortam ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Python Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# --- IDE ve Editör Dosyaları ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# --- İşletim Sistemi Dosyaları ---
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Dağıtım / Paketleme ---
+dist/
+build/
+*.egg-info/
+*.egg
+*.whl
+
+# --- Test ve Kapsam ---
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# --- Ortam Değişkenleri ---
+.env
+.env.local
+*.env
+
+# --- Büyük Veri Dosyaları (isteğe bağlı) ---
+# Ham veri dosyaları büyük olabilir; Git LFS veya yeniden indirme tercih edilebilir.
+# Eğer CSV'leri repo'ya dahil etmek istemiyorsanız aşağıdaki satırı aktif edin:
+# data/raw/*.csv
+
+# --- Log Dosyaları ---
+*.log
+
+# --- E-posta ve Hassas Belgeler ---
+# Hoca/Kurum e-postaları ve kişisel iletişim dosyaları repo'ya dahil edilmez.
+*.eml
+*.msg
+
+# --- Geçici Dosyalar ---
+*.tmp
+*.bak
+*.orig
+
+# --- Agents / AI Araç Dosyaları ---
+.agents/
+.gemini/
