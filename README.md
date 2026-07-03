@@ -64,18 +64,6 @@ Veri Bilimi Odev/
 │
 ├── notebooks/                                         # Analiz notebook'ları
 │   ├── BIST_Hisse_Analizi_ve_CAPM_Modellemesi.ipynb  ← TEK TESLİM (Master)
-│   ├── 01_veri_toplama.ipynb
-│   ├── 02_veri_on_isleme.ipynb
-│   ├── 03_eksik_veri_aykiri_deger.ipynb
-│   ├── 04_gunluk_getiriler_istatistikler.ipynb
-│   ├── 05_zaman_serisi_gorsellestirme.ipynb
-│   ├── 06_korelasyon_isi_haritasi.ipynb
-│   ├── 07_sektorel_beta_analizi.ipynb
-│   ├── 08_getiri_dagilim_grafikleri.ipynb
-│   ├── 09_sektorel_oynaklik_analizi.ipynb
-│   ├── 10_sektorel_teknik_gostergeler.ipynb
-│   ├── 11_fiyat_hacim_kesisim.ipynb
-│   └── 12_sektorel_lineer_regresyon_capm.ipynb
 │
 ├── data/
 │   ├── raw/
